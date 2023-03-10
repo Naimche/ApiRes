@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface UserRepository : CrudRepository<User, Long>{
-    fun findUsersByNickName(nick: String): List<User> = findAll().filter { it.nick == nick }
+    fun findUsersByNickName(nick: String): MutableList<User> = findAll().filter { it.nick == nick }.toMutableList()
 }

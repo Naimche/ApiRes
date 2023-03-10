@@ -6,12 +6,6 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 
-/**
- * ### MOVIES CONTROLLER
- * Controlador de [Movie]
- *
- * @see [MovieServiceImpl]
- */
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/v1/movies")
@@ -20,14 +14,6 @@ class MoviesController {
     @Autowired
     lateinit var moviesService: MovieServiceImpl;
 
-    /**
-     * ### GET ALL MOVIES
-     * Función que devuelve una lista de [Movie]
-     * - HTTP method: GET
-     * @author Naim Cheddi.
-     * - ENDPOINT: /api/v1/movies
-     * @return [ResponseEntity] con una [List] de [Movie]
-     */
     @GetMapping()
     fun getAllMovies(): ResponseEntity<List<Movie>> {
         val movies = moviesService.all
@@ -38,16 +24,7 @@ class MoviesController {
         }
     }
 
-    /**
-     * ### GET ONE MOVIE
-     * Función que devuelve una [Movie] del sistema según su [id].
-     *
-     * - HTTP method: GET
-     * - ENDPOINT: /api/v1/movies/{id}
-     *
-     * @param id: [Long]
-     * @return [ResponseEntity] con una [Movie]
-     */
+
     @GetMapping("/{id}")
     fun getMovieById(@PathVariable id: Long): ResponseEntity<Movie> {
         val movie = moviesService.dao.findById(id)

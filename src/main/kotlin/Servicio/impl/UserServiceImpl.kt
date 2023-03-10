@@ -21,7 +21,7 @@ class UserServiceImpl : UserServiceAPI, GenericServiceImpl<User, Long>() {
         return if (!repositorio.findUsersByNickName(nick).isNullOrEmpty()) repositorio.findUsersByNickName(nick)?.first()
         else null
     }
-    override fun getUsersByNickName(nick: String): List<User>? = repositorio.findUsersByNickName(nick)
+    override fun getUsersByNickName(nick: String): MutableList<User>? = repositorio.findUsersByNickName(nick)
     override fun deleteUsersByNickName(nick: String):Boolean {
         val user = getUserByNick(nick)
         return if (user!= null) {

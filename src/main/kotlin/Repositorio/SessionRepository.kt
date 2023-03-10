@@ -7,5 +7,5 @@ import java.time.LocalDate
 
 @Repository
 interface SessionRepository : CrudRepository<Session, Long> {
-    fun findByDate(date: LocalDate): List<Session>
+    fun findByDate(date: LocalDate): MutableList<Session>
 }

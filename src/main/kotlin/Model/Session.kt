@@ -12,9 +12,6 @@ class Session(
     var room_id: Long,
     @Column(name="date")
     var date: LocalDate,
-    @ManyToOne()
-    @JoinColumn(name = "movie_id")
-    var pelicula_id: Movie,
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long
